@@ -1,0 +1,86 @@
+/** @format */
+
+@keyframes basketOpen {
+	0% {
+		transform: translateX(-40vw);
+	}
+}
+@keyframes rotateBall {
+	50% {
+		transform: rotate(360deg);
+		border-color: rgb(38, 252, 252);
+	}
+	100% {
+		transform: rotate(0deg);
+		border: rgb(106, 230, 162) 0.5vh ridge;
+	}
+}
+.basketBall {
+	background: radial-gradient(
+		rgba(22, 188, 182, 0.9),
+		rgba(110, 181, 214, 0.4)
+	);
+	border: dashed 0.4vh #ffffff;
+	width: fit-content;
+	text-align: center;
+	padding: 1vh;
+	border-radius: 115vh;
+	cursor: pointer;
+}
+.basketBall:hover {
+	animation: rotateBall infinite 2s;
+}
+.basketDrawer {
+	top: 0;
+	animation: basketOpen 1s;
+	width: 33.7vw;
+	border-radius: 4vh;
+	height: 100vh;
+	background-color: rgba(159, 237, 237, 0.9);
+	border-right: ridge 2.2vh rgba(153, 234, 188, 0.4);
+	position: fixed;
+	z-index: 1;
+}
+.basketHeader {
+	position: fixed;
+	width: 32.7vw;
+	border-radius: 0vh 2vh 0vh 0vh;
+	height: 4vh;
+	color: rgba(4, 1, 39, 0.9);
+	display: flex;
+	padding: 0vh 1vh;
+	justify-content: flex-end;
+	text-align: center;
+	background: radial-gradient(
+		rgba(22, 188, 182, 0.9),
+		rgba(110, 181, 214, 0.4)
+	);
+}
+.basketBase {
+	margin-top: 3vh;
+	animation: basketOpen 1s;
+	width: 99%;
+	height: inherit;
+	background-color: rgba(255, 255, 255, 0.99);
+	border: double 0.5vh rgba(5, 108, 218, 0.9);
+	border-left: none;
+	border-radius: 0vh 1vh 1vh 0vh;
+	overflow-y: scroll;
+}
+.cross {
+	transition: transform 0.7s;
+}
+.cross:hover {
+	cursor: grabbing;
+	color: rgba(252, 107, 3, 0.9);
+	transform: rotate(90deg);
+}
+@media (max-width: 777px) {
+	.basketDrawer {
+		width: 100%;
+	}
+
+.basketHeader{
+width: 96%;
+}
+}

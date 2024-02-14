@@ -1,0 +1,112 @@
+/** @format */
+
+.menuBox {
+    width: 100vw;
+    display: flex;
+    direction: rtl;
+    background-color: aquamarine;
+}
+
+.daysSection {
+    width: 72%;
+}
+
+.day {
+    width: 100%;
+    background: linear-gradient(222deg,
+            rgba(177, 239, 239, 0.9),
+            rgba(102, 222, 222, 0.9),
+            rgba(57, 172, 172, 0.9));
+    color: rgba(1, 13, 44, 0.9);
+    border-bottom: 1vh double rgb(236, 253, 254);
+    height: 33vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.day:hover {
+    color: aliceblue;
+    background: radial-gradient(rgba(4, 64, 94, 0.9),
+            rgba(41, 200, 200, 0.9),
+            rgba(175, 251, 251, 0.9));
+}
+
+.foodSection {
+    width: 78%;
+}
+
+.dayFoods {
+    display: flex;
+    background: linear-gradient(44deg,
+            rgb(214, 242, 241),
+            rgba(205, 211, 239, 0.9));
+    height: 33vh;
+    border-bottom: 1vh double rgb(236, 253, 254);
+    padding: 1vh 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.foodBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 1vh;
+    height: 100%;
+    cursor: pointer;
+}
+
+.foodBox:hover {
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+
+.foodImage {
+    border: 0.3vh rgb(133, 224, 254) ridge;
+    width: 25vh;
+    height: 77%;
+}
+
+.price,
+.name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(229deg,
+            rgb(145, 220, 215),
+            rgb(245, 245, 214),
+            rgb(133, 224, 254));
+    height: 10%;
+}
+
+.buttonBox,
+.inBasketBox {
+    position: absolute;
+    z-index: 2;
+    margin-top: 11vh;
+    margin-right: 2vh;
+    background-color: rgba(240, 248, 255, 0.222);
+    width: 21vh;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.inBasketIcon {
+    background-color: rgb(245, 245, 214);
+    border-radius: 4vh;
+    padding: 1vh;
+    border: dashed .3vh rgb(133, 224, 254);
+}
+
+.addNewIcon {
+    background-color: rgb(247, 251, 255);
+    color: rgb(18, 88, 39);
+    border-radius: 4vh;
+    padding: .5vh;
+    font-size: 5vh;
+}
