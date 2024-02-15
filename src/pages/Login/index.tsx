@@ -1,9 +1,12 @@
+/** @format */
 
 import 'react-toastify/dist/ReactToastify.css'
 import { toast, ToastContainer, Zoom } from 'react-toastify'
 import { useState } from 'react'
 import Image from 'next/image'
 import styles from './index.module.css'
+import Switch from '@/Components/Switch'
+import { SignUp, SignIn } from './handler'
 
 interface LoginProps {
 	setToken: (token: boolean) => void
@@ -13,38 +16,14 @@ const Login: React.FC<LoginProps> = ({ setToken }) => {
 	const [password, setPassword] = useState('')
 	const [formShow, setFormShow] = useState<boolean>(true)
 	const [isLoading, setIsLoading] = useState(false)
-	const handleSignIn = async (e: React.SyntheticEvent) => {
-		e.preventDefault()
-		setIsLoading(true)
+	const [state, setState] = useState<string>('Login')
+ 
+	const handleState = (state: boolean) =>
+		state === true ? setState('Login') : state === false && setState('Register')
 
-		try {
- 			const response = await fetch('/api/Auth/Session/Generator', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					userPass: user + '&' + password,
-					authType: '&^ClieNt%LOgIn^&B*y^P$h#o@N#E',
-				}),
-			})
-			const data = await response.json()
-			if (data.success === true && response.status === 200) {
-				localStorage.setItem('user', JSON.stringify(user))
-				sessionStorage.setItem('token', JSON.stringify(data.token))
-				setToken(true)
-				toast.success(data.message)
-			} else {
-				toast.error(data.message)
-				setIsLoading(false)
-			}
-		} catch (error) {
-			console.log(error)
-			toast.error('failed call login api' + error)
-		}
-	}
 	return (
 		<>
+			{state}
 			<ToastContainer
 				position={'top-right'}
 				newestOnTop
@@ -70,7 +49,13 @@ const Login: React.FC<LoginProps> = ({ setToken }) => {
 								<div className={styles.formShadow}>
 									<form
 										className={styles.formInnerBox}
-										onSubmit={handleSignIn}>
+										onSubmit={() =>
+											state === 'Register'
+												? SignUp(setIsLoading, user, password)
+												: state === 'Login' &&
+												  SignIn(setIsLoading, user, password)
+										}>
+										<Switch handleState={handleState} />
 										<div className={styles.formRow}>
 											<label>
 												ایمیل <span className={styles.slash}>/ </span> شماره
@@ -103,8 +88,9 @@ const Login: React.FC<LoginProps> = ({ setToken }) => {
 												type='button'
 												className={styles.cancel}
 												onClick={() => setFormShow(false)}
-											value={'ثبت نام'}/> 
- 										</div>
+												value={'ثبت نام'}
+											/>
+										</div>
 									</form>
 								</div>
 							</>
