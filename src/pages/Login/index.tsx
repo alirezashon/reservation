@@ -103,7 +103,7 @@ const Login: React.FC<LoginProps> = ({ setToken }) => {
 												type='button'
 												className={styles.cancel}
 												onClick={() => setFormShow(false)}
-											value={'خروج'}/> 
+											value={'ثبت نام'}/> 
  										</div>
 									</form>
 								</div>
