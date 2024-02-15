@@ -31,13 +31,15 @@ const weekDays = [
 const Menu = () => {
 	const [isMouseIn, setIsMouseIn] = useState<number[]>([])
 	const [foods, setFoods] = useState<Food[][]>(data)
-	const [basket, setBasket] = useState<string[]>([])
+	const [basket, setBasket] = useState<string[][]>([])
 
 	useEffect(() => {
-		const data = Get()
-		setBasket(data)
+		setBasket(Get())
 	}, [setBasket])
-
+	const handleAction = (name: string, id: string) => {
+		name === 'Add' ? Add(id) : name === 'Remove' && Remove(id)
+		setBasket(Get())
+	}
 	return (
 		<>
 			<div className={styles.container}>
@@ -55,15 +57,6 @@ const Menu = () => {
 										className={styles.foodBox}
 										onMouseEnter={() => setIsMouseIn([index, subIndex])}
 										onMouseLeave={() => setIsMouseIn([])}>
-										{basket.includes(details._id) && (
-											<div className={styles.inBasketBox}>
-												<AiOutlineShoppingCart
-													className={styles.inBasketIcon}
-													color='#499b01'
-													size={'6vh'}
-												/>
-											</div>
-										)}
 										<p className={styles.name}>{details.name}</p>
 										<Image
 											alt=''
@@ -73,26 +66,41 @@ const Menu = () => {
 											height={222}
 										/>
 										<p className={styles.price}>{details.price} تومان</p>
+										{basket[1]?.includes(details._id) && (
+											<div className={styles.inBasketBox}>
+												<AiOutlineShoppingCart
+													className={styles.inBasketIcon}
+													color='#499b01'
+													size={'6vh'}
+												/>
+											</div>
+										)}
 										{isMouseIn[0] === index && isMouseIn[1] === subIndex && (
 											<div
 												className={styles.buttonBox}
 												style={{
 													justifyContent: `${
-														basket.includes(details._id)
+														basket[1].includes(details._id)
 															? 'space-between'
 															: 'center'
 													}`,
 												}}>
-												{basket.includes(details._id) ? (
+												{basket[1].includes(details._id) ? (
 													<>
-														<FaMinus onClick={() => Remove(`${details._id}`)} />
+														<FaMinus
+															onClick={() =>
+																handleAction('Remove', `${details._id}`)
+															}
+														/>
 														<MdAddCircle
 															onClick={() => Add(`${details._id}`)}
 														/>
 													</>
 												) : (
 													<MdAddCircle
-														onClick={() => Add(`${details._id}`)}
+														onClick={() =>
+															handleAction('Add', `${details._id}`)
+														}
 														className={styles.addNewIcon}
 													/>
 												)}
