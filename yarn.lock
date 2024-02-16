@@ -111,6 +111,11 @@
   dependencies:
     "@types/webidl-conversions" "*"
 
+address@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/address/-/address-2.0.1.tgz#7740c2c46cd3f76724fd9d85396fcb01a7f0d414"
+  integrity sha512-Fd3nPUe+kPZ0P70sGkV8dAUchT3pQCyTPQO5xW9580oqVBPJe2PtWtK7KGnQBvgTrloWAOvOoX8DksyuIWssvQ==
+
 bson@^6.2.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/bson/-/bson-6.3.0.tgz#d47acba525ba7d7eb0e816c10538bce26a337fe0"

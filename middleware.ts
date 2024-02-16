@@ -1,26 +1,26 @@
-// /** @format */
+/** @format */
 
-// import { NextRequest, NextResponse } from 'next/server'
-// import { Validator } from './Components/Session'
-// const middleware = (request: NextRequest) => {
-// 	if (request.nextUrl.pathname === '/') {
-// 		console.log(request)
-// 		const response = NextResponse.next()
-// 		response.cookies.set({
-// 			name: '*i&o(n^e%s$k#k@a#n%',
-// 			value: 'slug',
-// 		})
-// 		return NextResponse.redirect(new URL('/login', request.url))
-// 	}
-// 	if (request.nextUrl.pathname === '/register') {
-// 		return NextResponse.rewrite(new URL('/rewrite', request.url))
-// 	}
-// 	return NextResponse.next()
-// }
+import { NextRequest, NextResponse } from 'next/server'
 
-// export const config = {
-// 	matcher: ['/about/:path*', '/another/:path*'],
-// }
+const middleware = (request: NextRequest) => {
+	if (request.nextUrl.pathname === '/') {
+		console.log(request)
+        const response = NextResponse.next()
+        
+		response.cookies.set({
+			name: '*i&o(n^e%s$k#k@a#n%',
+			value: 'slug',
+		})
+		return NextResponse.redirect(new URL('/login', request.url))
+	}
+	return NextResponse.next()
+}
+
+export const config = {
+	matcher: ['/about/:path*', '/another/:path*'],
+}
+
+export default middleware
 
 // matcher middleware
 

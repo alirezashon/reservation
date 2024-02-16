@@ -13,6 +13,7 @@ const logSchema = new mongoose.Schema({
 			timeStyle: 'medium',
 		}),
 	},
+	mac: String,
 	status: String,
 })
 
