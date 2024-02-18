@@ -2,24 +2,24 @@
 
 import 'react-toastify/dist/ReactToastify.css'
 import { toast, ToastContainer, Zoom } from 'react-toastify'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import styles from './index.module.css'
 import Switch from '../../Components/Switch'
 import { SignUp, SignIn } from '../../Components/Auth'
-import { useRouter } from 'next/router'
+
 const Login: React.FC = () => {
 	const [user, setUser] = useState<string>('')
 	const [password, setPassword] = useState('')
 	const [formShow, setFormShow] = useState<boolean>(true)
 	const [isLoading, setIsLoading] = useState(false)
 	const [state, setState] = useState<string>('&L^a^g@y&N*')
-	const router = useRouter()
+
 	const submiter = () => {
-		router.push('/')
 		state === '*R(e&d%i^s$T#e@r$'
 			? SignUp(setIsLoading, user, password)
 			: state === '&L^a^g@y&N*' && SignIn(setIsLoading, user, password)
+		window.location.href = '/'
 	}
 
 	return (

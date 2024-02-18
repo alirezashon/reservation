@@ -1,0 +1,71 @@
+/** @format */
+
+@keyframes foodListBackground {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.foodListBackground {
+    animation: foodListBackground 2s;
+    height: 78vh;
+    background: linear-gradient(to top, #73f6ed 22%, transparent 111%);
+    padding: 1vh 0vh;
+    border: ridge 1.4vh #28fbf1;
+    box-shadow: 1px 1px 7px 2px #ce8d01 inset, 1px 1px 5px 1px #903101;
+}
+
+.header {
+    background: linear-gradient(to right, #06e7d4 22%, transparent 111%);
+    border: double 0.7vh #f7f6f7;
+    text-align: center;
+    box-shadow: 1px 1px 7px 2px #24acce, 1px 1px 4px 4px #04b2b5 inset;
+    padding: 1vh;
+    margin: 2vh 1vh;
+    border-radius: 2vh;
+    color: #012b75;
+}
+
+.header:hover {
+    background-color: #69cde6;
+    cursor: pointer;
+    border: dashed 0.3vh #021d38;
+    color: #fbfaf7;
+    text-decoration: wavy;
+}
+
+.foodBoxScroller {
+    border-top-left-radius: 2vh;
+    border: 0.7vh ridge #13ede9;
+    background: linear-gradient(to right, #7df6ec 22%, transparent 111%);
+    height: 66vh;
+    border-bottom-left-radius: 7vh;
+    overflow-y: scroll;
+}
+
+.foodsBox {
+    border-radius: 2vh;
+    border-bottom-left-radius: 7vh;
+    background: linear-gradient(to bottom, #1d5c75 11%, transparent 111%);
+}
+
+.food {
+    padding: 3vh;
+    margin: 1vh 0vh;
+    background-color: #e5fbf6;
+    border: solid 0.4vh #02d9f5;
+    box-shadow: 1px 1px 7px 2px #09f6e3e9 inset, 0px 0px 5px 2px #8fafe0;
+    color: #021538;
+    border-radius: 1vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.food:hover {
+    background-color: #ffb300;
+    cursor: pointer;
+}

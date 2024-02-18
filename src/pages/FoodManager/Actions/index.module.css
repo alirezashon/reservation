@@ -1,0 +1,172 @@
+/** @format */
+@keyframes foodManagementBox {
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+@keyframes foodManagementBoxClose {
+	0% {
+		transform: translateX(0%);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+.foodManagementBox {
+	animation: foodManagementBox 2s;
+	border: groove 1.4vh #1fe6f8;
+	background: linear-gradient(to top, #5bede1 22%, transparent 111%);
+	padding: 1vh 0vh;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.header {
+	background: linear-gradient(to right, #3078dd 22%, transparent 111%);
+	border: double 0.7vh #f7f6f7;
+	text-align: center;
+	box-shadow: 1px 1px 7px 2px #022f38, 1px 1px 4px 4px #35baf8 inset;
+	padding: 1vh;
+	margin: 2vh 1vh;
+	border-radius: 2vh;
+	color: #011041;
+}
+
+.header:hover {
+	background: linear-gradient(to right, #012e6d 22%, transparent 111%);
+	cursor: pointer;
+	border: dashed 0.3vh #180238;
+	color: #fbfaf7;
+	text-decoration: wavy;
+}
+
+.formBox {
+	display: flex;
+	justify-content: center;
+}
+
+.form {
+	background: linear-gradient(to bottom, #0452b7 22%, transparent 111%);
+	padding: 1vh 0vh;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	padding: 4vh 2vh;
+	border: double 1vh #0a11ee;
+	border-radius: 2vh;
+	margin: 4vh -2vh;
+	box-shadow: 1px 1px 5px 1px #59f7ed inset, 1px 1px 12px 3px #0241e0;
+}
+
+.label {
+	background-color: #63e1ed;
+	color: #00071e;
+	padding: 1vh 2vh;
+	border-radius: 11vh;
+	align-self: center;
+}
+
+.labelBox {
+	padding: 0.7vh;
+	margin: 2vh 0vh;
+	background-color: #e5fbf6;
+	border: solid 0.4vh #c3e5fc;
+	box-shadow: 1px 1px 7px 2px #01363e inset, 0px 0px 5px 2px #024097;
+	color: #180238;
+	border-radius: 1vh;
+	display: flex;
+	justify-content: space-around;
+}
+
+/* Style the radio container */
+.radioContainer {
+	display: flex;
+	align-items: center;
+}
+
+/* Style the radio input */
+.radioContainer input[type='radio'] {
+	display: none;
+	/* Hide the actual radio input */
+}
+
+/* Style the radio label */
+.radioLabel {
+	background: linear-gradient(to right, #12dce0 66%, transparent 111%);
+	border: ridge 0.3vh #0b94ca;
+	box-shadow: 1px 1px 4px 1px #01373e, 1px 1px 4px 1px #05a4a1;
+	border-radius: 2vh;
+	padding: 1vh 2vh;
+	margin: 1vh 1vh;
+	cursor: pointer;
+	font-style: oblique;
+	font-weight: bold;
+	color: #00071e;
+	text-align: center;
+}
+
+.radioLabel:hover {
+	background: linear-gradient(to left, #26d7d4 22%, transparent 111%);
+	border-color: #2e95d0;
+}
+
+.radioContainer input[type='radio']:checked + .radioLabel {
+	background-color: #08849a;
+	width: 11vw;
+	color: white;
+}
+
+.radioContainer input[type='radio']:focus + .radioLabel {
+	outline: none;
+	border-color: #08cad4;
+}
+
+.input {
+	background: linear-gradient(to right, #065f6d 22%, transparent 177%);
+	border: ridge 0.5vh #c5f1f5;
+	border-radius: 1vh;
+	padding: 1vh;
+	text-align: center;
+}
+
+.input::placeholder {
+	color: white;
+	opacity: 0.77;
+	font-style: oblique;
+	font-weight: bold;
+}
+
+.input:hover {
+	background: linear-gradient(to right, #39acb6 22%, transparent 111%);
+	border-color: #fbf053;
+}
+
+.input:focus {
+	outline: none;
+	background-color: #def5f3;
+	border: double 0.7vh #055d5a;
+	border-radius: 7vh;
+}
+
+.submitBtn {
+	background: linear-gradient(to right, #06516d 22%, transparent 111%);
+	color: #ffffff;
+	border: ridge 0.4vh #edd62b;
+	border-radius: 2vh;
+	font-style: oblique;
+	font-size: 22px;
+	box-shadow: 1px 1px 7px 3px;
+}
+
+.submitBtn:hover {
+	cursor: pointer;
+	background: linear-gradient(to right, #39b0b6 22%, transparent 111%);
+	border-color: #7f019b;
+}

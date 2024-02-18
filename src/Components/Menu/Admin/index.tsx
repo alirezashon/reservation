@@ -1,4 +1,4 @@
- 
+/** @format */
 
 import Image from 'next/image'
 import styles from '../index.module.css'
@@ -108,6 +108,7 @@ const Menu = () => {
 										)}
 									</div>
 								))}
+								<MdAddCircle className={styles.addNewIcon}/>
 							</div>
 						))}
 					</div>
