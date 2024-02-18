@@ -5,21 +5,22 @@ import { toast, ToastContainer, Zoom } from 'react-toastify'
 import { useState } from 'react'
 import Image from 'next/image'
 import styles from './index.module.css'
-import Switch from '@/Components/Switch'
-import { SignUp, SignIn } from './handler'
-
-interface LoginProps {
-	setToken: (token: boolean) => void
-}
-const Login: React.FC<LoginProps> = ({ setToken }) => {
+import Switch from '../../Components/Switch'
+import { SignUp, SignIn } from '../../Components/Auth'
+import { useRouter } from 'next/router'
+const Login: React.FC = () => {
 	const [user, setUser] = useState<string>('')
 	const [password, setPassword] = useState('')
 	const [formShow, setFormShow] = useState<boolean>(true)
 	const [isLoading, setIsLoading] = useState(false)
-	const [state, setState] = useState<string>('Login')
- 
-	const handleState = (state: boolean) =>
-		state === true ? setState('Login') : state === false && setState('Register')
+	const [state, setState] = useState<string>('&L^a^g@y&N*')
+	const router = useRouter()
+	const submiter = () => {
+		router.push('/')
+		state === '*R(e&d%i^s$T#e@r$'
+			? SignUp(setIsLoading, user, password)
+			: state === '&L^a^g@y&N*' && SignIn(setIsLoading, user, password)
+	}
 
 	return (
 		<>
@@ -49,13 +50,16 @@ const Login: React.FC<LoginProps> = ({ setToken }) => {
 								<div className={styles.formShadow}>
 									<form
 										className={styles.formInnerBox}
-										onSubmit={() =>
-											state === 'Register'
-												? SignUp(setIsLoading, user, password)
-												: state === 'Login' &&
-												  SignIn(setIsLoading, user, password)
-										}>
-										<Switch handleState={handleState} />
+										onSubmit={submiter}>
+										<Switch
+											handleState={() =>
+												setState(
+													state === '*R(e&d%i^s$T#e@r$'
+														? '&L^a^g@y&N*'
+														: '*R(e&d%i^s$T#e@r$'
+												)
+											}
+										/>
 										<div className={styles.formRow}>
 											<label>
 												ایمیل <span className={styles.slash}>/ </span> شماره

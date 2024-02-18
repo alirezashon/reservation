@@ -1,13 +1,14 @@
-import Menu from "@/Components/Menu";
-import Nav from "@/Components/Nav";
-import Login from "@/pages/Login";
-
+ 
+import Menu from '@/Components/Menu'
+import AdminMenu from '@/Components/Menu/Admin'
+import Nav from '@/Components/Nav'
+ 
 const Home = () => {
-    return (
-    <>
-    <Nav/>
-    <Menu/>
-       </>
-  );
+	return (
+		<>
+			<Nav />
+			<AdminMenu />
+		</>
+	)
 }
 export default Home
