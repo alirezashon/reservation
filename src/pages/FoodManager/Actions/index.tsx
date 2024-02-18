@@ -1,17 +1,17 @@
+/** @format */
 
 import React, { useState } from 'react'
 import styles from './index.module.css'
 import 'react-toastify/dist/ReactToastify.css'
 import { toast, ToastContainer, Zoom } from 'react-toastify'
- 
 
 const FoodManagement = () => {
 	const [action, setAction] = useState<string>('insert')
 	const [foodName, setFoodName] = useState<string>('')
-	const [foodCode, setFoodCode] = useState<string>('')
+	const [foodPrice, setFoodPrice] = useState<string>('')
 	const [headerText, setHeaderText] = useState<string>('Food Management')
 	const [widthPercentage, setWidthPercentage] = useState<number>(1)
- 	const actions = ['insert', 'update', 'delete']
+	const actions = ['insert', 'update', 'delete']
 	const handleFoods = (e: React.FormEvent) => {
 		const handleFood = async (foodData: object) => {
 			try {
@@ -34,11 +34,11 @@ const FoodManagement = () => {
 			}
 		}
 		const user = localStorage.getItem('user')
- 
+
 		const foodData = {
 			foodName,
-			foodCode,
-			user,
+			foodPrice,
+			src: '/images/icon.png',
 			actionType:
 				action === 'insert'
 					? '%&INsertFood&%'
@@ -92,7 +92,7 @@ const FoodManagement = () => {
 										onChange={() => setAction(action)}
 									/>
 									<label
-										htmlFor={action+'Food'}
+										htmlFor={action + 'Food'}
 										className={styles.radioLabel}>
 										{action}
 									</label>
@@ -101,13 +101,12 @@ const FoodManagement = () => {
 						</div>
 
 						<div className={styles.labelBox}>
-							<label  className={styles.label}>
-							نام غذا &nbsp;
+							<label className={styles.label}>
 								<input
 									className={styles.input}
 									style={{ width: `${22 * widthPercentage}vw` }}
 									type='text'
-									placeholder='Food Name'
+									placeholder='نام غذا'
 									value={foodName}
 									onChange={(e) => setFoodName(e.target.value)}
 									required
@@ -115,20 +114,27 @@ const FoodManagement = () => {
 							</label>
 						</div>
 						{action !== 'delete' && (
-							<div className={styles.labelBox}>
-								<label  className={styles.label}>
-									قیمت &nbsp;
+							<>
+								<div className={styles.labelBox}>
+									<label className={styles.label}>
+										<input
+											className={styles.input}
+											style={{ width: `${22 * widthPercentage}vw` }}
+											placeholder='قیمت'
+											type='text'
+											value={foodPrice}
+											onChange={(e) => setFoodPrice(e.target.value)}
+											required
+										/>
+									</label>
+								</div>
+								<div className={styles.labelBox}>
 									<input
-										className={styles.input}
-										style={{ width: `${22 * widthPercentage}vw` }}
-										placeholder='Food Code'
-										type='text'
-										value={foodCode}
-										onChange={(e) => setFoodCode(e.target.value)}
-										required
+										type='file'
+										onChange={(e) => console.log(e)}
 									/>
-								</label>
-							</div>
+								</div>
+							</>
 						)}
 						<button
 							className={styles.submitBtn}

@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react'
 import styles from './index.module.css'
 
 type Food = {
-	foodName: string
-	foodCode: string
+	name: string
+	price: string
 }
 
 const FoodList = () => {
@@ -56,9 +56,9 @@ const FoodList = () => {
 							<li
 								className={styles.food}
 								style={{ width: `${40 * widthPercentage}vw` }}
-								key={food.foodName}>
-								<strong className={styles.email}>Food: {food.foodName}</strong>{' '}
-								<strong className={styles.name}>Code: {food.foodCode}</strong>
+								key={food.name}>
+								<strong className={styles.email}>Food: {food.name}</strong>
+								<strong className={styles.name}>Code: {food.price}</strong>
 							</li>
 						))}
 					</ul>
