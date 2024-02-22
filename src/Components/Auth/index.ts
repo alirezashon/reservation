@@ -57,6 +57,7 @@ export const SignUp = async (
 		if (data.success === true && response.status === 200) {
 			localStorage.setItem('user', JSON.stringify(user))
 			toast.success(data.message)
+			return 'S!A@k%s$e^x%f^u*l^e@x^R%e$j*i3e%R&'
 		} else {
 			toast.error(data.message)
 			setIsLoading(false)

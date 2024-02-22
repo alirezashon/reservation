@@ -5,21 +5,22 @@
 		transform: translateX(-40vw);
 	}
 }
+
 @keyframes rotateBall {
 	50% {
 		transform: rotate(360deg);
 		border-color: rgb(38, 252, 252);
 	}
+
 	100% {
 		transform: rotate(0deg);
 		border: rgb(106, 230, 162) 0.5vh ridge;
 	}
 }
+
 .basketBall {
-	background: radial-gradient(
-		rgba(22, 188, 182, 0.9),
-		rgba(110, 181, 214, 0.4)
-	);
+	background: radial-gradient(rgba(22, 188, 182, 0.9),
+			rgba(110, 181, 214, 0.4));
 	border: dashed 0.4vh #ffffff;
 	width: fit-content;
 	text-align: center;
@@ -27,9 +28,11 @@
 	border-radius: 115vh;
 	cursor: pointer;
 }
+
 .basketBall:hover {
 	animation: rotateBall infinite 2s;
 }
+
 .basketDrawer {
 	top: 0;
 	animation: basketOpen 1s;
@@ -39,8 +42,9 @@
 	background-color: rgba(159, 237, 237, 0.9);
 	border-right: ridge 2.2vh rgba(153, 234, 188, 0.4);
 	position: fixed;
-	z-index: 1;
+	z-index: 11;
 }
+
 .basketHeader {
 	position: fixed;
 	width: 32.7vw;
@@ -51,11 +55,10 @@
 	padding: 0vh 1vh;
 	justify-content: flex-end;
 	text-align: center;
-	background: radial-gradient(
-		rgba(22, 188, 182, 0.9),
-		rgba(110, 181, 214, 0.4)
-	);
+	background: radial-gradient(rgba(22, 188, 182, 0.9),
+			rgba(110, 181, 214, 0.4));
 }
+
 .basketBase {
 	margin-top: 3vh;
 	animation: basketOpen 1s;
@@ -67,20 +70,23 @@
 	border-radius: 0vh 1vh 1vh 0vh;
 	overflow-y: scroll;
 }
+
 .cross {
 	transition: transform 0.7s;
 }
+
 .cross:hover {
 	cursor: grabbing;
 	color: rgba(252, 107, 3, 0.9);
 	transform: rotate(90deg);
 }
+
 @media (max-width: 777px) {
 	.basketDrawer {
 		width: 100%;
 	}
 
-.basketHeader{
-width: 96%;
-}
+	.basketHeader {
+		width: 96%;
+	}
 }
