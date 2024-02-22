@@ -1,4 +1,3 @@
-/** @format */
 
 import 'react-toastify/dist/ReactToastify.css'
 import { toast, ToastContainer, Zoom } from 'react-toastify'
@@ -24,8 +23,7 @@ const Login: React.FC = () => {
 
 	return (
 		<>
-			{state}
-			<ToastContainer
+ 			<ToastContainer
 				position={'top-right'}
 				newestOnTop
 				pauseOnHover
@@ -87,12 +85,6 @@ const Login: React.FC = () => {
 												type='submit'
 												value={'ورود'}
 												className={styles.submit}
-											/>
-											<input
-												type='button'
-												className={styles.cancel}
-												onClick={() => setFormShow(false)}
-												value={'ثبت نام'}
 											/>
 										</div>
 									</form>

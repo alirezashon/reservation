@@ -3,7 +3,7 @@
     padding: 0.1vh;
     background: linear-gradient(44deg,
             rgba(255, 255, 255, 0.503),
-            rgba(255, 255, 255, 0.202));
+            rgba(13, 105, 185, 0.202));
     border-radius: 1vh;
     display: flex;
     align-items: center;
@@ -30,9 +30,9 @@
     position: absolute;
     width: 4vh;
     height: 4vh;
-    background: radial-gradient(rgba(22, 175, 222, 0.8),
-            rgba(206, 229, 248, 0.9),
-            rgba(46, 200, 235, 0.8));
+    background: radial-gradient(rgba(222, 139, 22, 0.8),
+            rgba(251, 222, 30, 0.9),
+            rgba(235, 156, 46, 0.8));
     border-radius: 50%;
     transition: all 0.5s ease-in-out;
 }
@@ -45,9 +45,9 @@
 }
 
 .label {
-    background: radial-gradient(rgb(39, 151, 180),
-            rgba(8, 111, 111, 0.942),
-            rgba(7, 39, 69, 0.942));
+    background: radial-gradient(rgb(237, 119, 16),
+            rgba(222, 166, 52, 0.942),
+            rgba(231, 196, 40, 0.942));
     border-radius: 4vh;
     padding: 0.5vh 1vh;
     margin: 0 1vh;
@@ -58,8 +58,8 @@
 }
 
 .selectedRadio {
-    background: linear-gradient(rgb(161, 213, 226),
-            rgba(29, 169, 169, 0.942),
-            rgba(18, 61, 100, 0.942));
-    border: double .3vh #0c3a44e6;
+    background: linear-gradient(rgb(243, 128, 40),
+            rgba(235, 188, 68, 0.942),
+            rgba(255, 182, 56, 0.942));
+    border: double .3vh #d8f8ffe6;
 }
