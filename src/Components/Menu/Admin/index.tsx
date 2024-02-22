@@ -1,4 +1,3 @@
-/** @format */
 
 import Image from 'next/image'
 import styles from '../index.module.css'
@@ -34,6 +33,16 @@ const Menu = () => {
 	const [basket, setBasket] = useState<string[][]>([])
 
 	useEffect(() => {
+		;(async () => {
+			const response = await fetch('/api/data/Post/Client/page', {
+				method: 'POST',
+				headers:{'Content-Type':'application/json'},
+				body: JSON.stringify({ authType: 'G&E!T*P^R$O#D$U^C@T*S' }),
+			})
+			const data = await response.json()
+			setFoods(data.products)
+			console.log(data)
+		})()
 		setBasket(Get())
 	}, [setBasket])
 	const handleAction = (name: string, id: string) => {

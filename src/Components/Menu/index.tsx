@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import styles from './index.module.css'
-import { data } from './data'
 import { useEffect, useState } from 'react'
 import { GiCrossMark } from 'react-icons/gi'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
@@ -30,10 +29,20 @@ const weekDays = [
 
 const Menu = () => {
 	const [isMouseIn, setIsMouseIn] = useState<number[]>([])
-	const [foods, setFoods] = useState<Food[][]>(data)
+	const [foods, setFoods] = useState<Food[][]>([[], [], [], [], [], [], []])
 	const [basket, setBasket] = useState<string[][]>([])
 
 	useEffect(() => {
+		;(async () => {
+			const response = await fetch('/api/data/Post/Client/page', {
+				method: 'POST',
+				headers:{'Content-Type':'application/json'},
+				body: JSON.stringify({ authType: 'G&E!T*P^R$O#D$U^C@T*S' }),
+			})
+			const data = await response.json()
+			setFoods(data.products)
+			console.log(data)
+		})()
 		setBasket(Get())
 	}, [setBasket])
 	const handleAction = (name: string, id: string) => {

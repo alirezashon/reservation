@@ -7,12 +7,9 @@ import React, { useEffect, useState } from 'react'
 import { Add, Remove } from '../Actions'
 interface Post {
 	_id: string
-	title: string
+	name: string
 	src: string
-	price: number
-	category: string
-	quantity: number
-	description: string
+	price: string
 	inBasket?: number
 }
 interface BasketStore {
@@ -70,19 +67,19 @@ const Products: React.FC = () => {
 
 	return (
 		<>
-			{postStates.map((obj) => (
+			{postStates&& postStates.map((obj) => (
 				<div key={obj._id} className={styles.postsContainer}>
 					<div className={styles.productBox}>
 						<Image
 							src={obj.src}
-							alt={obj.description}
+							alt={obj.name}
 							width={222}
 							height={222}
 							className={styles.image}
 						/>
 						<div className={styles.productDetails}>
 							<div className={styles.title}>
-								<h4>{obj.title}</h4>
+								<h4>{obj.name}</h4>
 							</div>
 							<div className={styles.details}>
 								<div className={styles.priceBox}>

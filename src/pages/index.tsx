@@ -10,7 +10,7 @@ const Home = () => {
 		<>
 			<Basket />
 			<Nav />
-			<AdminMenu />
+			<Menu />
 		</>
 	)
 }
