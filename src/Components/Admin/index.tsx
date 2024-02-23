@@ -63,6 +63,7 @@ const Menu = () => {
 			toast.warning('Please fill in all fields')
 			return
 		}
+		
 
  		const reader = new FileReader()
 		reader.onloadend = () => {

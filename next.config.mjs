@@ -1,8 +1,12 @@
-/** @type {import('next').NextConfig} */
+ 
 const nextConfig = {
-  reactStrictMode: true,
- images: {
-    domains: ['picsum.photos'],
-  },};
+	reactStrictMode: true,
+	images: {
+		domains: ['picsum.photos'],
+	},
+	api: {
+		responseLimit: '9mb',
+	},
+}
 
-export default nextConfig;
+export default nextConfig

@@ -2,6 +2,7 @@
 
 import { NextApiRequest, NextApiResponse } from 'next'
 import WeekFoods from '../../../../../../models/WeekFoods'
+import Foods from '../../../../../../models/Foods'
 import db from '../../../../../../utils/index.js'
 const Page = async (req: NextApiRequest, res: NextApiResponse) => {
 	try {
@@ -9,7 +10,9 @@ const Page = async (req: NextApiRequest, res: NextApiResponse) => {
 			const { authType } = req.body
 			if (authType === 'G&E!T*P^R$O#D$U^C@T*S') {
 				await db.connect()
-				const products = await WeekFoods.find({})
+				const products = await WeekFoods.findOne({})
+				const foods = await Foods.find({ _id: { $in: products.foods } })
+				console.log(foods)
 				res.status(200).json({ success: true, products })
 			} else {
 				res.status(407).json({ success: false, message: 'Invalid Auth Type' })

@@ -12,7 +12,7 @@
 
 .foodListBackground {
     animation: foodListBackground 2s;
-    height: 78vh;
+    height: 92vh;
     background: linear-gradient(to top, #73f6ed 22%, transparent 111%);
     padding: 1vh 0vh;
     border: ridge 1.4vh #28fbf1;

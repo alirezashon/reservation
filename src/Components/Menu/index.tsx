@@ -1,4 +1,3 @@
-/** @format */
 
 import Image from 'next/image'
 import styles from './index.module.css'
@@ -40,7 +39,7 @@ const Menu = () => {
 				body: JSON.stringify({ authType: 'G&E!T*P^R$O#D$U^C@T*S' }),
 			})
 			const data = await response.json()
-			setFoods(data.products)
+			data.products && setFoods(data.products)
 			console.log(data)
 		})()
 		setBasket(Get())
@@ -49,6 +48,7 @@ const Menu = () => {
 		name === 'Add' ? Add(id) : name === 'Remove' && Remove(id)
 		setBasket(Get())
 	}
+	const a = {_id:{}}
 	return (
 		<>
 			<div className={styles.container}>
@@ -59,7 +59,7 @@ const Menu = () => {
 						))}
 					</div>
 					<div className={styles.foodSection}>
-						{foods.map((food, index) => (
+						{foods?.map((food, index) => (
 							<div className={styles.dayFoods}>
 								{food.map((details, subIndex) => (
 									<div

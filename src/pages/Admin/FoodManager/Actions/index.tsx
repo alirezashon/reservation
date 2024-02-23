@@ -1,16 +1,17 @@
 /** @format */
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styles from './index.module.css'
 import 'react-toastify/dist/ReactToastify.css'
 import { toast, ToastContainer, Zoom } from 'react-toastify'
 
 const FoodManagement = () => {
+	const image = useRef<HTMLInputElement>(null)
 	const [action, setAction] = useState<string>('insert')
 	const [foodName, setFoodName] = useState<string>('')
 	const [foodPrice, setFoodPrice] = useState<string>('')
 	const [headerText, setHeaderText] = useState<string>('Food Management')
-	const [widthPercentage, setWidthPercentage] = useState<number>(1)
+	const [imagePlain, setImagePlain] = useState<string>('')
 	const actions = ['insert', 'update', 'delete']
 	const handleFoods = (e: React.FormEvent) => {
 		const handleFood = async (foodData: object) => {
@@ -38,7 +39,7 @@ const FoodManagement = () => {
 		const foodData = {
 			foodName,
 			foodPrice,
-			src: '/images/icon.png',
+			src: imagePlain,
 			actionType:
 				action === 'insert'
 					? '%&INsertFood&%'
@@ -51,7 +52,18 @@ const FoodManagement = () => {
 		handleFood(foodData)
 		e.preventDefault()
 	}
+	const handleChangeFile = () => {
+		const imageFile = image.current?.files ? image.current.files[0] : null
 
+		if (imageFile) {
+			const reader = new FileReader()
+			reader.onloadend = () => {
+				const imageData = reader.result?.toString().split(',')[1]
+				imageData && setImagePlain(imageData)
+			}
+			reader.readAsDataURL(imageFile)
+		}
+	}
 	return (
 		<>
 			<ToastContainer
@@ -66,7 +78,7 @@ const FoodManagement = () => {
 			/>
 			<div
 				className={styles.foodManagementBox}
-				style={{ width: `${50 * widthPercentage}vw` }}>
+				style={{ width: `${50}vw` }}>
 				<h2
 					className={styles.header}
 					onMouseOver={() => setHeaderText('==')}
@@ -76,7 +88,7 @@ const FoodManagement = () => {
 				<div className={styles.formBox}>
 					<form
 						className={styles.form}
-						style={{ width: `${33 * widthPercentage}vw` }}
+						style={{ width: `${33}vw` }}
 						onSubmit={handleFoods}>
 						<div className={styles.labelBox}>
 							<label className={styles.label}>Action:</label>
@@ -104,7 +116,7 @@ const FoodManagement = () => {
 							<label className={styles.label}>
 								<input
 									className={styles.input}
-									style={{ width: `${22 * widthPercentage}vw` }}
+									style={{ width: `${22}vw` }}
 									type='text'
 									placeholder='نام غذا'
 									value={foodName}
@@ -119,7 +131,7 @@ const FoodManagement = () => {
 									<label className={styles.label}>
 										<input
 											className={styles.input}
-											style={{ width: `${22 * widthPercentage}vw` }}
+											style={{ width: `${22}vw` }}
 											placeholder='قیمت'
 											type='text'
 											value={foodPrice}
@@ -130,8 +142,10 @@ const FoodManagement = () => {
 								</div>
 								<div className={styles.labelBox}>
 									<input
+										required
 										type='file'
-										onChange={(e) => console.log(e)}
+										ref={image}
+										onChange={handleChangeFile}
 									/>
 								</div>
 							</>
