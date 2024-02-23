@@ -1,0 +1,97 @@
+/** @format */
+
+.table {
+    width: 100%;
+    background: linear-gradient(44deg,
+            rgba(123, 231, 209, 0.9),
+            rgba(123, 123, 231, 0.9));
+}
+
+.table thead {
+    background: linear-gradient(44deg,
+            rgba(27, 172, 143, 0.9),
+            rgba(87, 87, 234, 0.9));
+    color: aliceblue;
+}
+
+.table tbody {
+    background: linear-gradient(44deg,
+            rgba(3, 1, 34, 0.9),
+            rgba(87, 87, 234, 0.9));
+    color: aliceblue;
+}
+
+.table tbody tr td {
+    text-align: center;
+    padding: 2vh;
+}
+
+.image {
+    border: 0.5vh ridge rgba(204, 252, 242, 0.9);
+    border-radius: 22vh;
+}
+
+.checkboxInput {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #fff4e1;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 50%;
+}
+
+.checkboxInput:checked {
+    background-color: #ffcf10;
+    border: 1px solid #e8ffd4;
+}
+
+.checkboxInput:not(:checked) {
+    position: relative;
+}
+
+.checkboxInput:not(:checked):before,
+.checkboxInput:not(:checked):after {
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 2px;
+    background-color: #cb0707;
+    transition: transform 0.3s ease;
+}
+
+.checkboxInput:not(:checked):before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.checkboxInput:not(:checked):after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.buttonBox {
+    background: radial-gradient(rgba(99, 123, 231, 0.9), rgb(0, 229, 255));
+    display: flex;
+    justify-content: space-around;
+}
+
+.cross,
+.check {
+    background-color: white;
+    padding: 1vh;
+    font-size: 6vh;
+    border-radius: 4vh;
+    margin: 1vh 5vh;
+}
+
+.cross {
+    color: rgb(228, 46, 0);
+}
+
+.check {
+    color: rgb(20, 120, 20);
+}

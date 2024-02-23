@@ -11,6 +11,10 @@ const Bulk = async (req: NextApiRequest, res: NextApiResponse) => {
 				await db.connect()
 				const products = await Food.find({ _id: { $in: bulkID } })
 				res.status(200).json({ success: true, products })
+			} else if (authType === 'G&E!T*P^R$O#D$U^C@T*s^f$u*l$') {
+				await db.connect()
+				const products = await Food.find({})
+				res.status(200).json({ success: true, products })
 			} else {
 				res.status(407).json({ success: false, message: 'Invalid Auth Type' })
 			}

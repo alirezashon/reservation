@@ -39,8 +39,7 @@ const Menu = () => {
 	const [basket, setBasket] = useState<string[][]>([])
 	const [isAddFood, setIsAddFood] = useState<boolean>(false)
 	useEffect(() => {
-		// setBasket(Get() 	)
-		;(async () => {
+ 		;(async () => {
 			const response = await fetch('/api/data/Post/Client/page', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
@@ -50,6 +49,7 @@ const Menu = () => {
  			data?.prudocts?.length > 0 && setData(data.products)
 		})()
 	}, [setBasket])
+	
 	const handleAction = (name: string, id: string) => {
 		// name === 'Add' ? Add(id) : name === 'Remove' && Remove(id)
 		// setBasket(Get())
